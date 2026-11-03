@@ -46,7 +46,7 @@ def test_connection() -> dict:
             password=os.environ["SAP_HANA_PASSWORD"],
             encrypt=True,
             sslValidateCertificate=True,
-            connectTimeout=10,
+            connectTimeout=10000,
         )
         cursor = connection.cursor()
         cursor.execute("SELECT CURRENT_USER FROM DUMMY")
@@ -90,7 +90,7 @@ def publish_shipment_status(event: dict) -> None:
             password=os.environ["SAP_HANA_PASSWORD"],
             encrypt=True,
             sslValidateCertificate=True,
-            connectTimeout=10,
+            connectTimeout=10000,
         )
         try:
             cursor = connection.cursor()
